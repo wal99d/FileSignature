@@ -19,15 +19,22 @@ currently the in-memory db contains 942 file signatures
 You have two options:
 
 1. By running docker and downloading "wal99d/filesig:0.1" image in one command as below:
+
 `#docker run -it -v /location/folder/files:/host wal99d/filesig:0.1 /home/filesig`
+
  and then run below command once you successfuly logged in docker image
+
  `#bin/filesig -f /host/SomeFile.pdf -b 4`
+
  if everything works fine then you will get below result
+
  `The Signature of this file is: 25 50 44 46
  File idenfied and it's: PDF|FDF`
 
 2. By installing Go and exporting GOPATH then compling Go project using below command:
+
 `#go install filesig`
+
 
 ## Todo
 
