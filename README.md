@@ -1,4 +1,4 @@
-# File Signature Extractor (Written in Go)
+# File Signature Extractor and Verifier
 This Go app will extract the file Signature from file passed as an argument, and then it validates it from in-memory list of file signatures  
 like below command:
 ```
@@ -12,7 +12,7 @@ like below command:
 The Signature of this file is: 25 50 44 46
 File idenfied and it's: PDF|FDF
 ```
-
+currently the in-memory db contains 942 file signatures
 
 ##Todo
 
