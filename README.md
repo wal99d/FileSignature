@@ -28,8 +28,10 @@ You have two options:
 
  if everything works fine then you will get below result
 
- `The Signature of this file is: 25 50 44 46
- File idenfied and it's: PDF|FDF`
+ ```
+ The Signature of this file is: 25 50 44 46
+ File idenfied and it's: PDF|FDF
+ ```
 
 2. By installing Go and exporting GOPATH then compling Go project using below command:
 
