@@ -4,6 +4,9 @@ import (
         "fmt"
         "os"
         "flag"
+        "txtparser"
+        "strings"
+        "github.com/fatih/color"
 )
 
 func main() {
@@ -14,7 +17,10 @@ func main() {
         flag.IntVar(&lastByte, "b", 0, "filesig -b NUMBER_OF_BYTES_TO_READ")
         flag.Parse()
         //then we open this file
-        f, _ := os.Open(file)
+        f, err := os.Open(file)
+        if err!=nil{
+          fmt.Println(err)
+        }
         //we tell GO to wait tell this func "main" finishes execution then close the file
         defer f.Close()
         //we must read file state in order to get the size of the file
@@ -32,6 +38,24 @@ func main() {
         if _, err := f.Read(bytes); err != nil {
                 fmt.Println(err)
         }
-        //then we print final 4 bytes using very handy tool which is slice
-        fmt.Printf("% x\n", bytes[0:lastByte])
+        //then we print final x bytes using very handy tool which is slice
+        result:=fmt.Sprintf ("% x\n", bytes[0:lastByte])
+        result=strings.TrimSpace(result)
+        fmt.Printf("The Signature of this file is: ")
+        blue := color.New(color.FgBlue)
+        whiteBackground := blue.Add(color.BgWhite)
+        whiteBackground.Printf("% s\n",result)
+        err,d:=txtparser.GetFileSigFromMem(result)
+        if err!=nil{
+          fmt.Println(err)
+        }
+        if d!=""{
+            formatted:= color.New(color.FgCyan, color.Bold)
+            formatted.Printf("File idenfied and it's: ")
+            formatted = color.New(color.FgGreen, color.Bold)
+            formatted.Printf("% s\n",d)
+        }else{
+          formatted := color.New(color.FgRed, color.Bold)
+          formatted.Println("File not Identified!!")
+        }
 }

@@ -4,9 +4,15 @@
 #bin/filesig -f FILE_GOES_HERE -b NUMBER_OF_BYTES_TO_READ"
 ```
 ***for example***
-*To extract only 10 Bytes from a PDF file you use the below command:*
+*To extract only 4 Bytes from a PDF file you use the below command:*
 
 ```
-#bin/filesig -f ~/Downloads/0912f5080126cc252b000000.pdf -b 10
-25 50 44 46 2d 31 2e 34 0a 25
+#bin/filesig -f /location/SomeFile.pdf -b 4
+The Signature of this file is: 25 50 44 46
+File idenfied and it's: PDF|FDF
 ```
+
+
+#Todo
+---
+* Need to implement reading bytes from some value to end value
