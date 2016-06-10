@@ -1,6 +1,6 @@
 #File Signature Extractor (Written in Go)
 ####This Go app will extract the file Signature from your File as an argument and validate the file from in-memory list of file signatures  
-like below:
+like below command:
 ```
 #bin/filesig -f FILE_GOES_HERE -b NUMBER_OF_BYTES_TO_READ"
 ```
