@@ -19,4 +19,4 @@ File idenfied and it's: PDF|FDF
 * Need to implement reading bytes from some value to end value
 
 
-*** inspired by (http://www.garykessler.net/library/file_sigs.html) ***
+***inspired by [Gary C. Kessler.](http://www.garykessler.net/library/file_sigs.html)***
