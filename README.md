@@ -15,7 +15,6 @@ File idenfied and it's: PDF|FDF
 
 
 #Todo
--
 * Need to implement reading bytes from some value to end value
 -
 
