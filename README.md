@@ -7,10 +7,12 @@ This Go app will extract the file Signature from your File as an argument like b
 *To extract only 10 Bytes from a PDF file you use the below command:*
 
 -
-*لإستخراج أول عشرة بايت ل
+*
+لإستخراج أول عشرة بايت ل
 ملف
 PDF
-نستخدم الأمر التالي*
+نستخدم الأمر التالي
+*
 -
 
 ```
