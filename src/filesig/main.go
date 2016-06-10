@@ -3,11 +3,16 @@ package main
 import (
         "fmt"
         "os"
+        "flag"
 )
 
 func main() {
         //Here we take file from 1st argument
-        file := os.Args[1]
+        var file string
+        var lastByte int
+        flag.StringVar(&file, "f","","filesig -f FILE_NAME")
+        flag.IntVar(&lastByte, "b", 0, "filesig -b NUMBER_OF_BYTES_TO_READ")
+        flag.Parse()
         //then we open this file
         f, _ := os.Open(file)
         //we tell GO to wait tell this func "main" finishes execution then close the file
@@ -28,5 +33,5 @@ func main() {
                 fmt.Println(err)
         }
         //then we print final 4 bytes using very handy tool which is slice
-        fmt.Printf("% x\n", bytes[0:4])
+        fmt.Printf("% x\n", bytes[0:lastByte])
 }
