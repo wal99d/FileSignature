@@ -33,7 +33,16 @@ You have two options:
  File idenfied and it's: PDF|FDF
  ```
 
-2. By installing Go and exporting GOPATH then compling Go project using below command:
+2. By installing [Go](https://golang.org/dl/), cloning, and exporting GOPATH as shown below:
+
+```
+#git clone https://github.com/wal99d/FileSignature.git
+#cd FileSignature
+#export GOPATH=`pwd`
+#export PATH=$PATH:$GOPATH
+```
+
+ finally you need to comple Go project using below command:
 
 `#go install filesig`
 
