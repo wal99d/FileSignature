@@ -32,7 +32,6 @@ You have two options:
  The Signature of this file is: 25 50 44 46
  File idenfied and it's: PDF|FDF
  ```
-
 2. By installing [Go](https://golang.org/dl/), cloning, and exporting GOPATH as shown below:
 
 ```
