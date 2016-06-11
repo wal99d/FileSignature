@@ -14,11 +14,11 @@ File idenfied and it's: PDF|FDF
 ```
 currently the in-memory db contains 942 file signatures
 
-## How-to Start
+## How-to
 
 You have two options:
 
-1. By running docker and downloading "wal99d/filesig:0.1" image in one command as below:
+1. By running docker and downloading "wal99d/filesig:0.1" image and sharing folder from your host to docker container all in one command as below:
 
 `#docker run -it -v /location/folder/files:/host wal99d/filesig:0.1 /home/filesig`
 
