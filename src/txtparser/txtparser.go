@@ -5,11 +5,17 @@ import(
   "os"
 )
 
-type SignatureDB struct{
+type SignatureInfo struct{
   Description string
   Signature string
   Extenion string
 }
+
+type SigDB struct{
+  db []SignatureInfo
+}
+
+var signatrueInfos []SignatureInfo
 
 func loadDBtoMemory() (error , [][]string) {
   file,err:=os.Open("db/customsigs_GCK.csv")
@@ -25,24 +31,39 @@ func loadDBtoMemory() (error , [][]string) {
   if err != nil {
     return err , make([][]string,0)
   }
-  //fmt.Println(reflect.TypeOf(records))
   return nil , records
 }
 
-func GetFileSigFromMem(fs string) (error , string){
+func prepareSigDBWithData() (error , *SigDB){
   err, data:=loadDBtoMemory()
-  var d string
   if err !=nil{
-    return err, ""
+    return err, nil
   }
+
+  signatrueInfos = make([]SignatureInfo , len(data))
 
   for i:=0;i<len(data); i++{
     for x:=0; x<len(data[i]);x++{
-      //fmt.Println(data[i][1])
-      if fs==data[i][1]{
-        d=data[i][2]
-        break
-      }
+      signatrueInfos[i].Description=data[i][0]
+      signatrueInfos[i].Signature=data[i][1]
+      signatrueInfos[i].Extenion=data[i][2]
+    }
+  }
+  return nil, &SigDB{
+    db:signatrueInfos,
+  }
+}
+
+func GetFileSigFromMem(fs string) (error , string){
+  err,sData:=prepareSigDBWithData()
+  if err !=nil{
+    return err, ""
+  }
+  var d string
+  for i:=0;i<len(sData.db); i++{
+    if fs==sData.db[i].Signature{
+      d=sData.db[i].Extenion
+      break
     }
   }
   return nil, d
