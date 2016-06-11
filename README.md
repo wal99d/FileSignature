@@ -18,7 +18,7 @@ currently the in-memory db contains 942 file signatures
 
 You have two options:
 
-* Option 1: By running docker and downloading "wal99d/filesig:0.1" image and sharing folder from your host to docker container all in one command as below:
+* **Option 1:** By running docker and downloading "wal99d/filesig:0.1" image and sharing folder from your host to docker container all in one command as below:
 
 `#docker run -it -v /location/folder/files:/host wal99d/filesig:0.1 /home/filesig`
 
@@ -32,7 +32,7 @@ You have two options:
  The Signature of this file is: 25 50 44 46
  File idenfied and it's: PDF|FDF
  ```
-* Option 2: By installing [Go](https://golang.org/dl/), cloning, and exporting GOPATH as shown below:
+* **Option 2:** By installing [Go](https://golang.org/dl/), cloning, and exporting GOPATH as shown below:
 
 ```
 #git clone https://github.com/wal99d/FileSignature.git
