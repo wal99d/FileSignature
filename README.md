@@ -2,13 +2,13 @@
 This Go app will extract the file Signature from file passed as an argument, and then it validates it from in-memory list of file signatures  
 like below command:
 ```
-#bin/filesig -f FILE_GOES_HERE -b NUMBER_OF_BYTES_TO_READ"
+#bin/filesig -f FILE_GOES_HERE -o START_OFFSET -b NUMBER_OF_BYTES_TO_READ"
 ```
 ***for example***
-*To extract only 4 Bytes from a PDF file you use the below command:*
+*To extract only 4 Bytes from a PDF file indicated by "-b" starting from offset 0 indicated by "-o" you use the below command:*
 
 ```
-#bin/filesig -f /location/SomeFile.pdf -b 4
+#bin/filesig -f /location/SomeFile.pdf -o 0 -b 4
 The Signature of this file is: 25 50 44 46
 File idenfied and it's: PDF|FDF
 ```
@@ -24,7 +24,7 @@ You have two options:
 
  and then run below command once you successfuly logged in docker image
 
- `#bin/filesig -f /host/SomeFile.pdf -b 4`
+ `#bin/filesig -f /host/SomeFile.pdf -o 0 -b 4`
 
  if everything works fine then you will get below result
 
@@ -46,10 +46,6 @@ You have two options:
 
 `#go install filesig`
 
-
-## Todo
-
-* Need to implement reading bytes from some value to end value
 
 -
 ***inspired by [Gary C. Kessler.](http://www.garykessler.net/library/file_sigs.html)***
