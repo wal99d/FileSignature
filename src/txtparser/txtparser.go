@@ -12,7 +12,7 @@ type SignatureDB struct{
 }
 
 func loadDBtoMemory() (error , [][]string) {
-  file,err:=os.Open("FileSigs_20151213/customsigs_GCK.csv")
+  file,err:=os.Open("db/customsigs_GCK.csv")
   defer file.Close()
   if err!=nil{
     return err , make([][]string,0)

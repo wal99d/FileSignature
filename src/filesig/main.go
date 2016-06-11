@@ -12,8 +12,9 @@ import (
 func main() {
         //Here we take file from 1st argument
         var file string
-        var lastByte int
+        var startingOffset ,lastByte int
         flag.StringVar(&file, "f","","filesig -f FILE_NAME")
+        flag.IntVar(&startingOffset, "o", 0, "filesig -o STARTING_OFFSET_NUMBER")
         flag.IntVar(&lastByte, "b", 0, "filesig -b NUMBER_OF_BYTES_TO_READ")
         flag.Parse()
         //then we open this file
@@ -39,7 +40,7 @@ func main() {
                 fmt.Println(err)
         }
         //then we print final x bytes using very handy tool which is slice
-        result:=fmt.Sprintf ("% x\n", bytes[0:lastByte])
+        result:=fmt.Sprintf ("% x\n", bytes[startingOffset:(startingOffset+lastByte)])
         result=strings.TrimSpace(result)
         fmt.Printf("The Signature of this file is: ")
         blue := color.New(color.FgBlue)
